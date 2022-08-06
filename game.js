@@ -38,7 +38,8 @@ function nextSequence() {
   $("#" + randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100);
 
   playSound(randomChosenColour);
-  level++;
+  level = gamePattern.length;
+  $("h1").text("LEVEL "+level);
 }
 
 var userChosenButton;
@@ -67,10 +68,10 @@ $(".btn").click(function(event){
             }, 1000); 
         }
         if(userChosenPattern.length === gamePattern.length && gamePattern.length != 0){ // if everything is correct
-            $("h1").text("LEVEL "+level);
             setTimeout(function(){
                 nextSequence();
             }, 1000); 
+            $("h1").text("LEVEL "+level);
             userChosenPattern = [];
         }
     }
@@ -82,7 +83,7 @@ $(".btn").click(function(event){
         setTimeout(function(){
             restorePress(userChosenButton);
         }, 100); 
-        level = 2;
+        level = gamePattern.length;
         setTimeout(function(){
             $("h1").text("LEVEL "+level);
         }, 500); 
@@ -98,7 +99,6 @@ $(document).keydown(function(){
     if(level === 0){
         setTimeout(function(){
             nextSequence();
-            $("h1").text("LEVEL "+level);
         }, 300); 
     }
 });
