@@ -82,7 +82,7 @@ $(".btn").click(function(event){
         setTimeout(function(){
             restorePress(userChosenButton);
         }, 100); 
-        level++;
+        level = 2;
         setTimeout(function(){
             $("h1").text("LEVEL "+level);
         }, 500); 
